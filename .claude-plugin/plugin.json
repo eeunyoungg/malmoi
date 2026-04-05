@@ -8,6 +8,5 @@
   "repository": "https://github.com/eeunyoungg/malmoi",
   "homepage": "https://github.com/eeunyoungg/malmoi",
   "license": "MIT",
-  "keywords": ["claude-code", "plugin", "notion", "insights", "daily", "product-design"],
-  "skills": "./skills/"
+  "keywords": ["claude-code", "plugin", "notion", "insights", "daily", "product-design"]
 }
