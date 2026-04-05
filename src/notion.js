@@ -180,15 +180,24 @@ async function notionRequest(method, path, body) {
   return data;
 }
 
+// 데이터베이스의 title 속성명 자동 감지
+async function getTitlePropertyName() {
+  const db = await notionRequest("GET", `/databases/${NOTION_DATABASE_ID}`);
+  for (const [key, val] of Object.entries(db.properties || {})) {
+    if (val.type === "title") return key;
+  }
+  return "Name";
+}
+
 // 페이지 생성 (블록은 100개 제한으로 나눠서 추가)
 async function createPage(title, blocks) {
-  // 첫 번째 100개 블록으로 페이지 생성
+  const titleProp = await getTitlePropertyName();
   const firstBatch = blocks.slice(0, 100);
 
   const page = await notionRequest("POST", "/pages", {
     parent: { database_id: NOTION_DATABASE_ID },
     properties: {
-      Name: {
+      [titleProp]: {
         title: [{ type: "text", text: { content: title } }],
       },
     },
