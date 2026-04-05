@@ -32,16 +32,12 @@ cd {MALMOI_DIR} && npm install
 
 사용자에게 순서대로 다음 정보를 요청하세요.
 
-**1. Anthropic API 키**
-> Anthropic API 키를 입력하세요. (https://console.anthropic.com/settings/keys)
-> 형식: `sk-ant-...`
-
-**2. Notion 통합 토큰**
+**1. Notion 통합 토큰**
 > Notion Integration 토큰을 입력하세요. (https://www.notion.so/my-integrations)
-> 형식: `secret_...`
+> 형식: `ntn_...` 또는 `secret_...`
 > 아직 없다면: 새 Integration 생성 → "Read content" + "Insert content" 권한 부여
 
-**3. Notion 데이터베이스 ID**
+**2. Notion 데이터베이스 ID**
 > 발행할 Notion 데이터베이스 URL을 입력하세요.
 > 형식: `https://www.notion.so/.../{DATABASE_ID}?v=...`
 > 또는 32자리 ID만 직접 입력 가능
@@ -60,7 +56,6 @@ URL에서 마지막 / 뒤, ? 앞의 32자리 문자열이 DATABASE_ID입니다.
 mkdir -p ~/.malmoi
 cat > ~/.malmoi/config << EOF
 MALMOI_DIR={MALMOI_DIR}
-ANTHROPIC_API_KEY={입력받은 Anthropic 키}
 NOTION_API_KEY={입력받은 Notion 토큰}
 NOTION_DATABASE_ID={추출한 데이터베이스 ID}
 EOF

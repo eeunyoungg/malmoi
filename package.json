@@ -9,7 +9,6 @@
     "analyze": "node src/analyzer.js"
   },
   "dependencies": {
-    "@anthropic-ai/sdk": "^0.39.0",
     "level": "^8.0.1"
   },
   "private": true

@@ -90,7 +90,6 @@ OS crontab → claude -p "/malmoi"
 
 - Claude Code CLI
 - Node.js 18+
-- Anthropic API 키 (Opus 사용료 발생)
 - Notion 계정 + Integration
 
 ---
