@@ -36,23 +36,23 @@ Read 툴로 `{MALMOI_DIR}/prompts/MALMOI_RULES.md`를 읽으세요.
 
 ---
 
-## Step 2: 대화 로그 수집 (Log Reader 서브에이전트)
+## Step 2: 대화 로그 수집 (병렬 Agent 호출)
 
-Agent 툴로 서브에이전트를 호출하세요. 아래 프롬프트를 전달하세요:
+**Agent 툴을 단일 메시지에서 두 번 동시 호출하세요** (병렬 실행).
 
 ---
-**[Log Reader 프롬프트]**
+**[Agent A — JSONL Reader 프롬프트]**
 
 오늘 날짜: `{오늘 날짜}`
 
-오늘 하루의 Claude 대화 로그를 수집해서 하나의 텍스트로 반환하세요.
+Claude Code CLI 대화 로그만 수집해서 텍스트로 반환하세요.
 
-**소스 1 — Claude Code CLI (JSONL)**
 1. Glob 툴로 `~/.claude/projects/**/*.jsonl` 전체 탐색
 2. 각 파일을 Read 툴로 열어 오늘 날짜로 시작하는 `timestamp` 항목만 추출
 3. `type`이 `"user"` 또는 `"assistant"`인 항목의 `message.content`를 순서대로 수집
 4. content가 배열이면 text 필드만 합쳐서 문자열로 변환
 5. 프로젝트 경로 마지막 부분을 프로젝트명으로 사용
+6. 오늘 대화 없으면 `"NO_JSONL"` 반환
 
 출력 형식:
 ```
@@ -63,13 +63,26 @@ assistant: {내용}
 ---
 ```
 
-**소스 2 — Claude 데스크탑 앱 (LevelDB)**
+---
+**[Agent B — LevelDB Reader 프롬프트]**
+
+오늘 날짜: `{오늘 날짜}`
+
+Claude 데스크탑 앱 대화 로그만 수집해서 텍스트로 반환하세요.
+
+Bash 툴로 실행:
 ```bash
 cd {MALMOI_DIR} && node src/read-leveldb.js {오늘 날짜} 2>/dev/null || echo "LEVELDB_SKIP"
 ```
-`LEVELDB_SKIP`이면 건너뛰세요.
 
-**최종 출력**: 소스 1 + 소스 2를 합친 텍스트. 오늘 대화 없으면 `"NO_CONVERSATIONS"`.
+출력이 `"LEVELDB_SKIP"`이면 `"NO_LEVELDB"` 반환.
+그 외에는 출력 텍스트를 그대로 반환.
+
+---
+
+두 Agent가 모두 완료되면 결과를 합칩니다:
+- 둘 다 없으면 → `"NO_CONVERSATIONS"` 로 처리하고 종료
+- 있는 것만 합쳐서 Step 4로 전달
 
 ---
 
