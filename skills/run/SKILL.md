@@ -1,3 +1,8 @@
+---
+name: run
+description: 오늘의 Claude 대화 로그를 수집하고 인사이트를 추출하여 Notion에 발행합니다
+---
+
 # /malmoi
 
 오늘 하루의 Claude 대화 로그를 수집하고, 가치 있는 인사이트를 추출하여 Notion에 발행합니다.

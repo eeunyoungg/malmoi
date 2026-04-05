@@ -1,3 +1,8 @@
+---
+name: setup
+description: Malmoi 최초 설치 — Notion API 키 설정, npm install, crontab 등록
+---
+
 # /malmoi:setup
 
 Malmoi 최초 설치를 진행합니다. 단계별로 필요한 정보를 수집하고 환경을 구성합니다.

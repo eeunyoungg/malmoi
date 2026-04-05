@@ -9,7 +9,7 @@
     {
       "name": "malmoi",
       "description": "하루의 Claude 대화 로그에서 가치 있는 인사이트만 추려 Notion에 자동 발행합니다. 추가 API 과금 없음.",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "author": {
         "name": "eeunyoungg"
       },
@@ -19,5 +19,5 @@
       "tags": ["notion", "insights", "daily", "blog", "product-design"]
     }
   ],
-  "version": "1.0.0"
+  "version": "1.0.1"
 }
