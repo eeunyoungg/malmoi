@@ -1,0 +1,19 @@
+node_modules/
+.env
+*.log
+
+# 런타임 임시 파일
+/tmp/malmoi-*.txt
+/tmp/malmoi-*.md
+
+# Claude Code & OMC 내부 파일
+.claude/
+.omc/
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# 로컬 설정 (~/.malmoi/config에 저장됨)
+.malmoi-config

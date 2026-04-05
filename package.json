@@ -1,0 +1,16 @@
+{
+  "name": "malmoi",
+  "version": "1.0.0",
+  "description": "Daily AI chat insights summarizer",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "collect": "node src/collector-leveldb.js",
+    "analyze": "node src/analyzer.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.39.0",
+    "level": "^8.0.1"
+  },
+  "private": true
+}
