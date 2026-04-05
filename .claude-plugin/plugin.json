@@ -1,0 +1,13 @@
+{
+  "name": "malmoi",
+  "version": "1.0.0",
+  "description": "데일리 AI 대화 인사이트 자동 발행 — Notion",
+  "author": {
+    "name": "eeunyoungg"
+  },
+  "repository": "https://github.com/eeunyoungg/malmoi",
+  "homepage": "https://github.com/eeunyoungg/malmoi",
+  "license": "MIT",
+  "keywords": ["claude-code", "plugin", "notion", "insights", "daily", "product-design"],
+  "skills": "./skills/"
+}

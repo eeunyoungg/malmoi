@@ -1,0 +1,23 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "malmoi",
+  "description": "데일리 AI 대화 인사이트 자동 발행 — Notion",
+  "owner": {
+    "name": "eeunyoungg"
+  },
+  "plugins": [
+    {
+      "name": "malmoi",
+      "description": "하루의 Claude 대화 로그에서 가치 있는 인사이트만 추려 Notion에 자동 발행합니다. 추가 API 과금 없음.",
+      "version": "1.0.0",
+      "author": {
+        "name": "eeunyoungg"
+      },
+      "source": "./",
+      "category": "productivity",
+      "homepage": "https://github.com/eeunyoungg/malmoi",
+      "tags": ["notion", "insights", "daily", "blog", "product-design"]
+    }
+  ],
+  "version": "1.0.0"
+}
